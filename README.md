@@ -1,54 +1,95 @@
-# React + TypeScript + Vite
+# ⚡ ZappMail
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ZappMail is a lightning-fast, developer-focused bulk email sending tool built with **Node.js**, **Express**, and **Nodemailer**. Designed for **controlled, reliable delivery** of individual emails — without using third-party mailing services or bloated CRM platforms.
 
-Currently, two official plugins are available:
+Perfect for startups, internal tools, or campaigns where **you control the SMTP** and want to send email smartly, one recipient at a time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**ZappMail** allows you to:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Accept a subject, message, and recipient list via a web form.
+- Send **individual** emails to each recipient (no CC/BCC exposure).
+- Implement a **rate limit** (e.g., 2 seconds between emails) to avoid triggering spam filters.
+- Log each email’s success or failure.
+- Retry sending on failure with a defined threshold.
+- Easily integrate with any React frontend.
+
+---
+
+## 🛠 Key Features
+
+- ✅ Built with Node.js, Express, and Nodemailer  
+- ✉️ Sends personalized, individual emails  
+- 🕒 2-second delay between sends (configurable)  
+- 🔒 Secure SMTP support (Gmail / SendGrid compatible)  
+- 🧠 Retry mechanism on failure  
+- 📝 HTML and plain-text email content supported  
+- 📊 Logging of each email status (success/failure)  
+- 🧪 Simple React-based form included  
+- 📦 Lightweight, no dependencies on external email services  
+- 🔧 Easily extendable (e.g., CSV upload, templates)
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/InfinityShadowDev/zapp-mail-client.git
+cd zappmail
+npm install
+````
+
+---
+
+## 🧪 How It Works
+
+1. The **frontend form** captures:
+
+   * Subject
+   * Message (HTML supported)
+   * List of emails (comma or newline-separated)
+
+2. The backend:
+
+   * Parses the email list
+   * Sends each email **individually**
+   * Waits `RATE_LIMIT_MS` between sends
+   * Logs each result
+   * Retries failed sends up to `RETRY_LIMIT` times
+
+3. Logs are printed to the console and optionally saved (extendable).
+
+---
+
+## ▶️ Running the App
+
+```bash
+npm run start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The backend will run at `http://localhost:8080`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📦 Future Improvements
+
+* 🧩 CSV upload and parsing
+* 👤 Recipient personalization
+* 📋 UI dashboard with progress bar
+* 📊 MongoDB logging or file-based report generation
+* 📧 Attachment support
+
+---
+
+## 🪪 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 🧠 Made for Developers Who Want Control
+
+ZappMail was built for those who prefer to handle bulk email **without handing over everything to third-party tools**. With flexibility, speed, and transparency in mind, ZappMail gives you full control over how, when, and to whom your emails are sent — one zapp at a time ⚡.
