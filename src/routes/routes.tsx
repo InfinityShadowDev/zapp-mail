@@ -4,11 +4,11 @@ import type { RouteObject } from "react-router-dom";
 
 const protectedRoutes: RouteObject[] = [
     {
-        path: "/admin/dashboard",
+        path: "/dashboard",
         element: <DashboardLayout />,
         children: [
             {
-                path: "/",
+                path: "/dashboard",
                 element: <Home />
             }
         ]
