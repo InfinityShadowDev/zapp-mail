@@ -1,19 +1,24 @@
-import { Root } from "@/layouts";
-import { Dashboard, Home } from "@/pages";
+import { DashboardLayout, RootLayout } from "@/layouts";
+import { Home } from "@/pages";
 import type { RouteObject } from "react-router-dom";
 
 const protectedRoutes: RouteObject[] = [
     {
         path: "/admin/dashboard",
-        element: <Dashboard />,
-        children: []
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: "/",
+                element: <Home />
+            }
+        ]
     }
 ]
 
 const routes: RouteObject[] = [
     {
         path: "/",
-        element: <Root />,
+        element: <RootLayout />,
         children: [
             {
                 path: "/",

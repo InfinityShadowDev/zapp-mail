@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const Root: React.FC = () => {
+const RootLayout: React.FC = () => {
     return (
         <div>
             <Outlet />
@@ -8,4 +8,4 @@ const Root: React.FC = () => {
     );
 }
 
-export default Root;
+export default RootLayout;
