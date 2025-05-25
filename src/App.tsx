@@ -1,9 +1,12 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { routes } from "@/routes";
+
+const router = createBrowserRouter([...routes]);
+
 function App() {
   return (
-    <>
-      <div className="text-amber-500">ZappMail</div>
-    </>
+    <RouterProvider router={router} />
   )
 }
 
-export default App
+export default App;
