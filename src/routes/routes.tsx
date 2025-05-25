@@ -1,5 +1,14 @@
 import { Root } from "@/layouts";
+import { Dashboard, Home } from "@/pages";
 import type { RouteObject } from "react-router-dom";
+
+const protectedRoutes: RouteObject[] = [
+    {
+        path: "/admin/dashboard",
+        element: <Dashboard />,
+        children: []
+    }
+]
 
 const routes: RouteObject[] = [
     {
@@ -8,10 +17,11 @@ const routes: RouteObject[] = [
         children: [
             {
                 path: "/",
-                element: <div>Welcome to the Home Page</div>
+                element: <Home />
             }
         ]
-    }
+    },
+    ...protectedRoutes
 ]
 
 export default routes;
