@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+:root {
+    /* Light Background Colors */
+    --background-light: #fafafa;
+    --background-light-contrast: #e7e5e4;
+
+    --text-dark: #0a0a0a;
+    --text-dark-contrast: #171717;
+
+    /* Dark Background Colors */
+    --background-dark: #0a0a0a;
+    --background-dark-contrast: #171717;
+
+    --text-light: #fafafa;
+    --text-light-contrast: #e7e5e4;
+
+    /* Secondary & Accent Colors */
+    --items-accent-lighter: #fdc700;
+    --items-accent-light: #f0b100;
+    --items-accent: #fe9a00;
+    --items-accent-dark: #e17100;
+}
+
+@theme inline {
+    --color-background-light: var(--background-light);
+    --color-background-light-contrast: var(--background-light-contrast);
+
+    --color-text-dark: var(--text-dark);
+    --color-text-dark-contrast: var(--text-dark-contrast);
+
+    --color-background-dark: var(--background-dark);
+    --color-background-dark-contrast: var(--background-dark-contrast);
+
+    --color-text-light: var(--text-light);
+    --color-text-light-contrast: var(--text-light-contrast);
+
+    --color-items-accent-lighter: var(--items-accent-lighter);
+    --color-items-accent-light: var(--items-accent-light);
+    --color-items-accent: var(--items-accent);
+    --color-items-accent-dark: var(--items-accent-dark);
+}
