@@ -1,14 +1,27 @@
 import { DashboardLayout, RootLayout } from "@/layouts";
-import { Home } from "@/pages";
+import { Home, SignUp } from "@/pages";
 import type { RouteObject } from "react-router-dom";
 
-const protectedRoutes: RouteObject[] = [
+const authRoutes: RouteObject[] = [
+    {
+        path: "/auth",
+        element: <RootLayout />,
+        children: [
+            {
+                path: "sign-up",
+                element: <SignUp />
+            }
+        ]
+    }
+]
+
+const dashboardRoutes: RouteObject[] = [
     {
         path: "/admin",
         element: <DashboardLayout />,
         children: [
             {
-                path: "/admin/dashboard",
+                path: "dashboard",
                 element: <Home />
             }
         ]
@@ -26,7 +39,8 @@ const routes: RouteObject[] = [
             }
         ]
     },
-    ...protectedRoutes
+    ...authRoutes,
+    ...dashboardRoutes
 ]
 
 export default routes;
